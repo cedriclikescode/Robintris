@@ -28,16 +28,6 @@ go build -o Robintris32.exe -tags=ebitenginesinglethread main.go
 Remove-Item Env:GOARCH
 
 Try {
-	del Robintris.wasm
-} 
-Catch {
-	Write-Host "An error occurred del wasm"
-}
-Finally {
-    Write-Host "Delete of Robintris.wasm finished. Building new one."
-}
-
-Try {
 	del RobintrisARM64.exe
 } 
 Catch {
@@ -50,6 +40,16 @@ Finally {
 $Env:GOARCH = 'arm64'
 go build -o RobintrisARM64.exe -tags=ebitenginesinglethread main.go
 Remove-Item Env:GOARCH
+
+Try {
+	del Robintris.wasm
+} 
+Catch {
+	Write-Host "An error occurred del wasm"
+}
+Finally {
+    Write-Host "Delete of Robintris.wasm finished. Building new one."
+}
 
 $Env:GOOS = 'js'
 $Env:GOARCH = 'wasm'
