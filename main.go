@@ -28,7 +28,7 @@ var (
 	nextBlockType int = rand.Intn(7)
 	blockX, blockY int = 3, 0
 	blocksStruct [25][4][4]int
-	blocks [20 * 23]bool
+	blocks [10 * 23]bool
 	keyToDAS int
 	keyHoldDuration float64
 	keyHoldProgress float64
